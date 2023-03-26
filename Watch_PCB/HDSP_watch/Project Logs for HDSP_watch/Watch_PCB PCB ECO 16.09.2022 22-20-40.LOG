@@ -1,6 +1,0 @@
-Change Component Footprint: Designator=C2 Old Footprint=CHIP-0805 New Footprint=CHIP-0402
-Change Component Footprint: Designator=R12 Old Footprint=CHIP-0805 New Footprint=CHIP-0402
-Added Member To Class: ClassName=Display_driver Member=Component R11 R0805
-Added Member To Class: ClassName=Display_driver Member=Component R15 R0805
-Added Room: Name=Display_driver
-Added Room: Name=Supply_core

@@ -1,4 +1,0 @@
-Removed Pin From Net: NetName=GND Pin=DD2-2
-Added Pin To Net: NetName=GND_D Pin=DD2-2
-Added Room: Name=Display_driver
-Added Room: Name=Supply_core

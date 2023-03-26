@@ -1,0 +1,1 @@
+All PCBs and schematics were designed in **Altium designed V20** 

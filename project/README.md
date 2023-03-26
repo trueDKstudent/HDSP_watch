@@ -1,0 +1,1 @@
+Project was built in **Microchip Stusio** for MC *ATtiny 85*
