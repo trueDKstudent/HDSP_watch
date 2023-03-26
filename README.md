@@ -1,12 +1,12 @@
-**Introduction**
+
+### Introduction
 
 Hello everyone, in this article I’d like to share with you my experience
 in designing a digital wrist watch on rare and vintage LED indicators.
 The main source of inspiration for this project came, of course, from
 very unusual matrix LED indicators HDSP-2000 (fig. 1).
 
-.. figure:: vertopal_README/media/image1.png
-   Fig. 1
+![Fig. 1](images/image1.png)
 
 When I saw them for the very first time I immediately fell in love with
 them. First of all, it was very unlikely for me to ever find a 4 digit
@@ -16,16 +16,13 @@ which are used to drive LED matrices, can be clearly seen through the
 glass screen, as well as the golden wires that connect all the parts
 together (fig. 2).
 
-.. figure:: vertopal_README/media/image2.png
-   Fig. 2
+![Fig. 2](images/image2.png)
 
 I’ve bought several models of this displays, each of them has its own
 color of light that is emitted from the LEDs.
 
 - HDSP-2000 – has red LEDs and red filtering glass;
-
 - HDPS-2001 – has yellow LEDs and clear glass;
-
 - QDSP-2009 (HDSP-2002) – has green LEDs and clear glass as well;
 
 As I got them I thought that it would be great idea to make on these
@@ -37,7 +34,7 @@ of any interesting tasks and projects, so I believed that designing of
 this watches might be beneficial to my further grows as an electronic
 engineer.
 
-**Watches features**
+### Watches features
 
 The first thing I decided to do was an inclusion of features, that will
 have my wrist watch.
@@ -45,18 +42,16 @@ have my wrist watch.
 - The most obvious one is the display of time – hours, minutes and
 seconds by clicking on specific button. A display of date, day of the
 week, month, year and charge will be added as well.
-
 - Another feature is indication of charging process, for example when
 battery is charging some led should emit light and when the battery is
 full – this led should turn off.
-
 - The last feature is setting of time and date.
 
 Of course, this is not the biggest list of possible features (alarm,
 timers) but this watches do not need a myriad of them to be magnificent.
 Just the look of its vintage indicators will make everyone adore it :)
 
-**Choosing the microcontoller**
+### Choosing the microcontoller
 
 When I was planing the entire project I also decided to make it more
 challenging and interesting to me. And because of that chose a bit
@@ -76,7 +71,7 @@ are only 5 pins which I could use to run an entire watch! It means that
 I had to design various drivers and multiplexers to drive all the
 devices with which ATtiny communicates.
 
-**Display driver**
+### Display driver
 
 The key devices which are driven by MCU are of course indicators
 HDSP-2000, without them entire project has no any sense. Due to the lack
@@ -130,8 +125,7 @@ time which mean that it is possible to regulate a brightness of the
 display. Timing diagram for the signals described above is shown on fig.
 3.
 
-.. figure:: vertopal_README/media/image3.png
-   Fig. 3
+![Fig. 3](images/image3.png)
 
 Bipolar PNP transistors were used in order to provide a current for the
 each column of the indicator. Since the low level signal is required to
@@ -139,18 +133,14 @@ open bipolar transistor and decimal counter can provide only high level
 signal for each output pin it was decoded to use inverter on N-channel
 MOS transistors.
 
-**Supply core**
+### Supply core
 
 Supply core circuit consists of the next blocks:
 
 - Accumulator;
-
 - Charging circuit;
-
 - DC-DC step up converter;
-
 - Linear voltage regulator;
-
 - Resistive divider of accumulator voltage;
 
 Li-Po accumulator was chosen as a voltage source because of the next
@@ -187,20 +177,15 @@ the purpose of transistor VT11. This transistor is needed to disconnect
 battery from converter when indicators are not used in order to reduce
 power consumption of the watch when they are turned off.
 
-**Control core**
+### Control core
 
 Control core consists of the following blocks:
 
 - MC ATtiny 85;
-
 - Multiplexers;
-
 - Real time clock;
-
 - HDSP indicators;
-
 - Voltage shifters;
-
 - Buttons;
 
 The main processing unit of the entire watch is microcontroller ATtiny
@@ -217,7 +202,7 @@ that are connected to those pins cannot be connected together with each
 other simultaneously due to data collisions it is better to multiplex
 all the signals in different moments of time.
 
-**Signals multiplexing**
+### Signals multiplexing
 
 First of all it is better to establish function of switching between
 programming mode and operating mode. This task is solved by usage of
@@ -243,7 +228,7 @@ used to exchange data between MC and RTC via I2C bus. Pins bx and by are
 used to measure buttons state and battery voltage level and pins ax and
 ay are used to drive MOS transistor VT11 in supply core.
 
-**Buttons control and battery voltage measurement**
+### Buttons control and battery voltage measurement
 
 Since MC Attiny 85 has limited amount of pins that can be used as inputs
 for buttons signals, it is way more convenient to represent signals from
@@ -273,13 +258,3 @@ Oops, seems like this is the end of the article :(
 
 later I will add my PCB design adventures here, so stay tuned for
 updates
-
-.. |image1| image:: vertopal_c348c7eb62f6428993bd2898609fdd1f/media/image1.png
-   :width: 3.69583in
-   :height: 3.08403in
-.. |image2| image:: vertopal_c348c7eb62f6428993bd2898609fdd1f/media/image2.png
-   :width: 3.44653in
-   :height: 2.52917in
-.. |image3| image:: vertopal_c348c7eb62f6428993bd2898609fdd1f/media/image3.png
-   :width: 6.69306in
-   :height: 2.67361in
