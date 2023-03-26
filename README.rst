@@ -5,7 +5,8 @@ in designing a digital wrist watch on rare and vintage LED indicators.
 The main source of inspiration for this project came, of course, from
 very unusual matrix LED indicators HDSP-2000 (fig. 1).
 
-|image1|\ Fig. 1
+.. figure:: vertopal_README/media/image1.png
+   Fig. 1
 
 When I saw them for the very first time I immediately fell in love with
 them. First of all, it was very unlikely for me to ever find a 4 digit
@@ -15,7 +16,8 @@ which are used to drive LED matrices, can be clearly seen through the
 glass screen, as well as the golden wires that connect all the parts
 together (fig. 2).
 
-|image2|\ Fig. 2
+.. figure:: vertopal_README/media/image2.png
+   Fig. 2
 
 I’ve bought several models of this displays, each of them has its own
 color of light that is emitted from the LEDs.
@@ -128,7 +130,8 @@ time which mean that it is possible to regulate a brightness of the
 display. Timing diagram for the signals described above is shown on fig.
 3.
 
-|image3|\ Figure 3.
+.. figure:: vertopal_README/media/image3.png
+   Fig. 3
 
 Bipolar PNP transistors were used in order to provide a current for the
 each column of the indicator. Since the low level signal is required to
