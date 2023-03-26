@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=BATTERY Pin=R20-1
+Added Component: Designator=C8(CHIP-0805)
+Add component (AddParameter): Name = "Value"; Value = "22u"; VariantName = "[No Variations]"
+Added Component: Designator=VD3(DIOD_MELF)
+Add component (AddParameter): Name = "Name"; Value = "BAS85"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=BATTERY Pin=VD3-2
+Added Pin To Net: NetName=NetC8_2 Pin=C8-2
+Added Pin To Net: NetName=NetC8_2 Pin=R20-1
+Added Pin To Net: NetName=NetC8_2 Pin=VD3-1
+Added Net: Name=NetC8_2
+Added Member To Class: ClassName=Supply_core Member=Component C8 C0805
+Added Member To Class: ClassName=Supply_core Member=Component VD3 BAS85
+Added Room: Name=Control_core
+Added Room: Name=Display_driver
+Added Room: Name=Supply_core

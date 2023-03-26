@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=+3V3 Pin=XS1-2
+Removed Pin From Net: NetName=PWM Pin=XS1-3
+Removed Pin From Net: NetName=GND Pin=XS1-4
+Removed Pin From Net: NetName=CLK Pin=XS1-5
+Change component parameters: Designator = "XS1" ("XS1"); Footprint = "SOCKET"; UniqueID = "\CUDYGFJE" ("\CUDYGFJE")
+Change component parameters (AddParameter): Name = "Pin1"; Value = "5V"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin2"; Value = "PWM"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin3"; Value = "GND"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin4"; Value = "CLK"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Pin5"; Value = "3V3"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PWM Pin=XS1-2
+Added Pin To Net: NetName=GND Pin=XS1-3
+Added Pin To Net: NetName=CLK Pin=XS1-4
+Added Pin To Net: NetName=+3V3 Pin=XS1-5
+Added Room: Name=Display_driver
+Added Room: Name=Supply_core

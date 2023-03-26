@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=R20 Old Footprint=CHIP-0805 New Footprint=CHIP-0402
+Change Component Footprint: Designator=R23 Old Footprint=CHIP-0805 New Footprint=CHIP-0402
+Added Room: Name=Display_driver
+Added Room: Name=Supply_core

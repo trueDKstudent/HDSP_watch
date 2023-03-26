@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GATE Pin=R21-1
+Removed Pin From Net: NetName=GATE Pin=XS6-7
+Added Pin To Net: NetName=GATE_S Pin=R21-1
+Added Pin To Net: NetName=GATE_S Pin=XS6-7
+Added Net: Name=GATE_S
+Added Room: Name=Display_driver
+Added Room: Name=Supply_core

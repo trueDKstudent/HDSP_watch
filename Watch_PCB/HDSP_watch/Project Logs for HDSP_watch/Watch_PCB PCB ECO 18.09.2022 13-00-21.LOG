@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=VD2 Old Footprint=DIOD New Footprint=DIOD_MELF
+Added Room: Name=Control_core
+Added Room: Name=Display_driver
+Added Room: Name=Supply_core

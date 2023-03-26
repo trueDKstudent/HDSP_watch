@@ -1,0 +1,12 @@
+Output: Copy of NC Drill Files
+Type  : NC Drill
+From  : PCB Document [Driver_PCB.PcbDoc]
+   Generated File[Driver_PCB-Plated.TXT]
+   Generated File[Driver_PCB.LDP]
+   Generated File[Driver_PCB.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 13:21:13 On 18.10.2022

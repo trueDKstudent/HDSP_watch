@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=SCLK Pin=XS9-1
+Removed Member From Class: ClassName=Control_core Member=XS9
+Added Room: Name=Control_core
+Added Room: Name=Display_driver
+Added Room: Name=Supply_core

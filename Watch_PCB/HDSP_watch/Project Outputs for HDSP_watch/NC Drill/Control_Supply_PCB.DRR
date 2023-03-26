@@ -1,0 +1,20 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Control_Supply_PCB.PcbDoc   18.10.2022  13:21:12
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII Plated RoundHoles File : Control_Supply_PCB-Plated.TXT
+ASCII Plated RectHoles File : Control_Supply_PCB-RectHoles-Plated.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.3mm (12mil)                                             Round             224       PTH        0.00mm (0.00inch)
+T2      0.4mm (16mil)                                             Round             8         PTH        0.00mm (0.00inch)
+T3      0.5mm (20mil)                                             Round             56        PTH        0.00mm (0.00inch)
+T4      0.5mm (20mil)                                             Rectangle         8         PTH        0.00mm (0.00inch)
+T5      0.7mm (28mil)                                             Round             168       PTH        0.00mm (0.00inch)
+T6      1.3mm (51mil)                                             Round             16        PTH        0.00mm (0.00inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              480
+
+Total Processing Time (hh:mm:ss) : 00:00:00

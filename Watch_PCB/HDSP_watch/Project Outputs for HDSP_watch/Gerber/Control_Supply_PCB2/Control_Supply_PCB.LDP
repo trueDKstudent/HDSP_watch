@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: D:\HDSP_watch\Watch_PCB\HDSP_watch\Control_Supply_PCB.PcbDoc
+LayersSetName=Top_Bot_Plated_Thru_Holes|DrillFile=control_supply_pcb-plated.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Plated_Rect_Holes|DrillFile=control_supply_pcb-rectholes-plated.txt|DrillLayers=gtl,gbl
