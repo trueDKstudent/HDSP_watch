@@ -1,6 +1,6 @@
 ## Wrist watch on HDSP-2000 indicators
 
-![watch](images/view4.jpg)
+![watch](/images/view4.jpg)
 
 ### Introduction
 
@@ -9,7 +9,7 @@ in designing a digital wrist watch on rare and vintage LED indicators.
 The main source of inspiration for this project came, of course, from
 very unusual matrix LED indicators HDSP-2000 (fig. 1).
 
-![Fig. 1](images/image1.png)
+![Fig. 1](/images/image1.png)
 
 When I saw them for the very first time I immediately fell in love with
 them. First of all, it was very unlikely for me to ever find a 4 digit
@@ -19,7 +19,7 @@ which are used to drive LED matrices, can be clearly seen through the
 glass screen, as well as the golden wires that connect all the parts
 together (fig. 2).
 
-![Fig. 2](images/image2.png)
+![Fig. 2](/images/image2.png)
 
 I’ve bought several models of this displays, each of them has its own
 color of light that is emitted from the LEDs.
@@ -56,8 +56,8 @@ Just the look of its vintage indicators will make everyone adore it :)
 
 Below are shown photos of finished wrist watch (without and with case).
 
-![view 1](images/view1.jpg)
+![view 1](/images/view1.jpg)
 
-![view 3](images/view3.jpg)
+![view 3](/images/view3.jpg)
 
-![wrist watch](images/wrist_watch.jpg)
+![wrist watch](/images/wrist_watch.jpg)
