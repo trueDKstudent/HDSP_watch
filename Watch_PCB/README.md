@@ -42,7 +42,7 @@ indicators, the counter CD4017 will count to the next value and the
 corresponding output pin will drive the column of indicator. Schematic
 of indicator is shown on fig. 1.
 
-![indicator schematic](/HDSP_watch/images/hdsp_sch.png)
+![indicator schematic](../images/hdsp_sch.png)
 **Figure 1.** - HDSP-2000 indicator schematic
 
 Another problem is to get know when the transition of data to shift
