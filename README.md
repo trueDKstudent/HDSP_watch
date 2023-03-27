@@ -10,6 +10,7 @@ The main source of inspiration for this project came, of course, from
 very unusual matrix LED indicators HDSP-2000 (fig. 1).
 
 ![Fig. 1](/images/image1.png)
+**Figure 1.**
 
 When I saw them for the very first time I immediately fell in love with
 them. First of all, it was very unlikely for me to ever find a 4 digit
@@ -20,6 +21,7 @@ glass screen, as well as the golden wires that connect all the parts
 together (fig. 2).
 
 ![Fig. 2](/images/image2.png)
+**Figure 2.**
 
 I’ve bought several models of this displays, each of them has its own
 color of light that is emitted from the LEDs.

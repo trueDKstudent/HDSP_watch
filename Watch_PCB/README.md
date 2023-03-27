@@ -62,7 +62,7 @@ single AND gate with 3 inputs. Output signal of AND gate is used as
 clock signal for decimal counter CD4017. Drivers schematic is shown on
 fig. 2.
 
-![driver](HDSP_watch/images/driver.png)
+![driver](../images/driver.png)
 **Figure 2.** - Display driver schematic
 
 Since indicator HDSP-2000 has 
@@ -84,7 +84,7 @@ time which mean that it is possible to regulate a brightness of the
 display. Timing diagram for the signals described above is shown on fig.
 3.
 
-![Fig. 3](HDSP_watch/images/image3.png)
+![Fig. 3](../images/image3.png)
 **Figure 3.** - Timing diagram of signals in display driver
 
 Bipolar PNP transistors were used in order to provide a current for the
@@ -103,7 +103,7 @@ Supply core circuit (fig. 4) consists of the next blocks:
 - Linear voltage regulator;
 - Resistive divider of accumulator voltage;
 
-![supply](HDSP_watch/images/supply.png)
+![supply](../images/supply.png)
 **Figure 4.** - Supply core schematic
 
 Li-Po accumulator was chosen as a voltage source because of the next
@@ -151,7 +151,7 @@ Control core (fig. 5) consists of the following blocks:
 - Voltage shifters;
 - Buttons;
 
-![control](HDSP_watch/images/control.png)
+![control](../images/control.png)
 **Figure 5.** - Control core schematic
 
 The main processing unit of the entire watch is microcontroller ATtiny
