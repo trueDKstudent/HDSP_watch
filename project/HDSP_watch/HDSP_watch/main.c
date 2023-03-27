@@ -10,12 +10,14 @@
 #include "DS1337.h"
 #include "HDSP_2000.h"
 
+// this interrupt makes MCU leave sleep mode
 ISR(PCINT0_vect)
 {
 	//MCUCR &= ~(1<<SE);
 	MCUCR = 0x10;
 }
 
+// Port initialization
 void port_init(void)
 {
 	CLKPR = 0x80;
@@ -25,11 +27,12 @@ void port_init(void)
 
 void pc_int_init(void)
 {
-	GIMSK = 0x20;
-	PCMSK = 0x10;
-	sei();
+	GIMSK = 0x20; // enable external interrupt INT0 
+	PCMSK = 0x10; // enable interrup from pin PC4
+	sei(); // enable all interrupts
 }
 
+// disables all interrupts
 void pc_int_stop(void)
 {
 	GIMSK = 0x00;
@@ -39,21 +42,22 @@ void pc_int_stop(void)
 
 void ADC_init(void)
 {
-	ADMUX = 0x02;
-	ADCSRA |= (1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0);
+	ADMUX = 0x02; // select pin PC4 as analog input
+	ADCSRA |= (1<<ADPS2)|(1<<ADPS1)|(1<<ADPS0); // ADC clock is f_cpu/128
 }
 
 int ADC_convert(void)
 {
 	int result, res_h;
 	
-	ADCSRA |= (1<<ADEN);
-	ADCSRA |= (1<<ADSC);
+	ADCSRA |= (1<<ADEN); // enable ADC
+	ADCSRA |= (1<<ADSC); // start conversion
 	
+	// wait until conversion is done
 	while((ADCSRA & (1<<ADIF)) != (1<<ADIF)) {}
 	
-	ADCSRA |= (1<<ADIF);
-	ADCSRA &= ~(1<<ADEN);
+	ADCSRA |= (1<<ADIF); // clear interrupt flag
+	ADCSRA &= ~(1<<ADEN); // disable ADC
 	
 	result = ADCL;
 	res_h = ADCH;
@@ -90,23 +94,28 @@ int main(void)
 	I2C_init();
 	DS1307_init();
 	pc_int_init();
-	MCUCR |= (1<<SM1);
+	MCUCR |= (1<<SM1); // select "power-down" sleep mode
 	
 	while (1)
     {	
-		MCUCR |= (1<<SE);
+		MCUCR |= (1<<SE); // enable sleep mode
 		
 		__asm__ __volatile__ ( "sleep" "\n\t" :: );
 		
-		pc_int_stop();		
-		memset(text, ' ', 55);
+		pc_int_stop(); // diable interuupts
+		memset(text, ' ', 55); // preparing string that will show time
 		
+		// read the voltage value of battery
 		PORTB |= (1<<PB3);
 		adc_input = ADC_convert();
 		adc_input = ((adc_input - 491) / 5) * 4;
 		PORTB &= ~(1<<PB3);
 		charge = adc_input;
 		
+		// in each iteration ptr varible increments by 1 with delay of 125 ms.
+		// It means that each time text with time will shift by one digit to
+		// the left. When ptr = 9 text will stop shifting for 124*24 ms. After
+		// that text will continue to shift until it will disappear on display
 		while(ptr < 16){
 			tim = malloc(sizeof(char)*8);
 			DS1307_get_Time(tim);
@@ -124,8 +133,11 @@ int main(void)
 			if(n==8) adc_input = ADC_convert();
 		}
 		
+		// here we check if button 2 was pressed
+		// which means that watch enters setting mode.
+		// Otherwise watch just display date
 		ptr = 0;
-		if(!(adc_input<100)) goto skip;
+		if(!(adc_input<100)) goto skip; 
 		ln = 1;
 		
 		ptr2 = 16+ln+4+(charge/100);
@@ -133,6 +145,7 @@ int main(void)
 		
 		adc_input = charge;
 		
+		// this loop sends date (day, month, year and charge) to display
 		while(ptr < ptr2) {
 			charge = adc_input;
 			tim = malloc(sizeof(char)*30);
@@ -156,7 +169,7 @@ int main(void)
 		n=0;
 		ptr = 0;
 		goto skip2;
-skip:
+skip:		// here starts settings mode
 		if(!((adc_input>100)&&(adc_input<900))) goto skip2;
 
 		n=7;
@@ -241,5 +254,3 @@ skip2:
 		pc_int_init();
     }
 }
-
-
