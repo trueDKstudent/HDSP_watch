@@ -1,4 +1,3 @@
-All PCBs and schematics were designed in **Altium designed V20** 
 
 ### Choosing the microcontoller
 
@@ -220,7 +219,15 @@ Finally, diode VD2 and integrator C7-R32 are used to keep DC-DC boost
 converter active while data is being sent to indicators. Without this
 solution text on display would blink.
 
-*Oops, seems like this is the end of the article :(*
+### PCB Design
 
-*later I will add my PCB design adventures here, so stay tuned for
-updates*
+All PCBs and schematics were designed in **Altium designed V20**.
+At first I tried to make PCBs by myself but after I got them I realized
+that its quality is not satisfying. After that I assumed that it would 
+be better to order my PCBs from a company that specializes in its 
+manufacturing. My ordered PCBs that I got from this shop are shown below.
+
+![pcb1](../images/pcb_image.jpg)
+
+![pcb2](../images/pcb_image2.jpg)
+

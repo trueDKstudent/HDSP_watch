@@ -7,6 +7,14 @@
 
 #include "HDSP_2000.h"
 
+/*
+ *Function send_text_proto is a prototype function from which functions send_text,
+ *scrool_text and scrool_text2 are made. Depending from the arguments function 
+ *send_text_proto can display text in various ways. Argument shifts indicate by 
+ *what amount of bits characters will be shifted up or down. Direction to which
+ *characters will be shifted is set by argument dir. Argument d is a delay in ms
+ *for which text will be displayed on screen(indicators). 
+ */
 void send_text_proto(const char *text, float d, uint8_t dir, uint8_t shift)
 {
 	uint8_t i, j, cnt, tmp;

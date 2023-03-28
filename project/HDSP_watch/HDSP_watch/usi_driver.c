@@ -12,7 +12,8 @@ void PWM_init(void)
 	TCCR1 |= (1<<CS12)|(1<<CS11)|(1<<CS10); // clk_t1/64
 	TCCR0A |= (1<<WGM01);
 	TCCR0B |= (1<<CS01); // clk_t0/8
-	
+	// clk_t1 = clk_t0 = 8 MHz	
+
 	OCR0A = cnt_top;
 	OCR0B = cnt_top/4;
 }
@@ -53,7 +54,6 @@ void I2C_start(void)
 	_delay_us(10);
 	USISR |= (1<<USISIF);
 	USICR |= (1<<USITC);
-	//__asm__ __volatile__ (	"sbi	0x0D,0" "\n\t" ::);
 	_delay_us(3);
 }
 

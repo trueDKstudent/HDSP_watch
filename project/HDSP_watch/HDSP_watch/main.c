@@ -85,9 +85,9 @@ int main(void)
 	uint8_t ln, n=0;
 	uint8_t charge;
 	uint8_t hor=0, min=0, sec=0, day=0, mon=0, dat=0, yer=0;
-	uint8_t max_val[7] = {99, 30, 11, 6, 59, 59, 23};
-	int adc_input;
-	
+	uint8_t max_val[7] = {99, 30, 11, 6, 59, 59, 23}; // max values for settings: max year, max date...
+	int adc_input;					  // Remark: in RTC DS1337 monthes, dates and day of the week
+							  // start from value 0
 	port_init();
 	PWM_init();
 	ADC_init();
@@ -140,12 +140,14 @@ int main(void)
 		if(!(adc_input<100)) goto skip; 
 		ln = 1;
 		
+		// here last part of the sum is a third digit of charge value
 		ptr2 = 16+ln+4+(charge/100);
 		n = charge/100;
 		
 		adc_input = charge;
 		
-		// this loop sends date (day, month, year and charge) to display
+		// this loop sends date (day, month, year and charge) to display.
+		// The text scrools to the left as well.
 		while(ptr < ptr2) {
 			charge = adc_input;
 			tim = malloc(sizeof(char)*30);
@@ -168,17 +170,18 @@ int main(void)
 		}
 		n=0;
 		ptr = 0;
-		goto skip2;
+		goto skip2; // skip settings mode
 skip:		// here starts settings mode
+		// and we check if button2 was pressed
 		if(!((adc_input>100)&&(adc_input<900))) goto skip2;
 
-		n=7;
+		n=7; // the number of settings
 		
 		while(n>0) {
 			
 			strcpy_P(text, (char *)pgm_read_word(&(set_table[n-1])));
 			SPI_init();
-			scrool_text2(text, 80);
+			scrool_text2(text, 80); // scrool text down by starting with empty screen
 loop:
 			switch(n) {
 				case 7:
@@ -225,18 +228,20 @@ loop:
 			
 			adc_input = ADC_convert();
 			
+			// here goes incrementation of one of the values that are being modified
 			if(adc_input<100) (*ptr3)++;
 			
 			if(*ptr3 > max_val[n-1]) *ptr3 = 0;
 			
+			// if button2 is pressed go to the next value to set
 			if(!((adc_input>100)&&(adc_input<900))) goto loop;
 			
 			n--;
 			SPI_init();
-			scrool_text(text, 80);
+			scrool_text(text, 80); // scrool text down
 			I2C_init();
 		}
-		
+		// write new date to RTC 
 		I2C_start();
 		//I2C_rep_start();
 		I2C_send_byte(w_addr);
@@ -251,6 +256,6 @@ loop:
 		I2C_stop();
 		
 skip2:
-		pc_int_init();
+		pc_int_init(); // enable all interrupts
     }
 }

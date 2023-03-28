@@ -57,6 +57,7 @@ timers) but this watches do not need a myriad of them to be magnificent.
 Just the look of its vintage indicators will make everyone adore it :)
 
 Below are shown photos of finished wrist watch (without and with case).
+In folder "video" you can find a video of watch in action.
 
 ![view 1](/images/view1.jpg)
 
