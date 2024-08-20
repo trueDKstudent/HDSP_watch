@@ -7,22 +7,34 @@
 
 #include "DS1337.h"
 
-void DS1307_get_Time(char *time)
+uint8_t DS1337GetBCD(uint8_t num)
+{
+    uint8_t tmp;
+    if(num > 9){
+        tmp = num;
+        num %= 10;
+        tmp /= 10;
+        num |= (tmp<<4);
+    }
+    return num;
+}
+
+void DS1337GetTime(char *time)
 {
 	uint8_t sec, min, hor;
 	
-	I2C_start();
-	I2C_send_byte(w_addr);
-	I2C_send_byte(0x00);
+	I2CStart();
+	I2CSendByte(WRITE_ADDR);
+	I2CSendByte(0x00);
 	_delay_us(3);
-	I2C_rep_start();
+	I2CRepStart();
 	_delay_us(2);
-	I2C_send_byte(r_addr);
-	sec = I2C_read_byte(0);
-	min = I2C_read_byte(0);
-	hor = I2C_read_byte(1);
+	I2CSendByte(READ_ADDR);
+	sec = I2CReadByte(0);
+	min = I2CReadByte(0);
+	hor = I2CReadByte(1);
 	_delay_us(5);
-	I2C_stop();
+	I2CStop();
 	
 	time[7] = 0x30 | (0x0F & sec);
 	time[6] = 0x30 | ((0x70 & sec)>>4);
@@ -34,23 +46,23 @@ void DS1307_get_Time(char *time)
 	time[0] = 0x30 | ((0x30 & hor)>>4);
 }
 
-void DS1307_get_Date(char *time)
+void DS1337GetDate(char *time)
 {
 	uint8_t day, month, date, year;
 	char buff[14];
 	
-	I2C_start();
-	I2C_send_byte(w_addr);
-	I2C_send_byte(0x03);
+	I2CStart();
+	I2CSendByte(WRITE_ADDR);
+	I2CSendByte(0x03);
 	_delay_us(3);
-	I2C_rep_start();
+	I2CRepStart();
 	_delay_us(2);
-	I2C_send_byte(r_addr);
-	day = I2C_read_byte(0);
-	date = I2C_read_byte(0);
-	month = I2C_read_byte(0);
-	year = I2C_read_byte(1);
-	I2C_stop();
+	I2CSendByte(READ_ADDR);
+	day = I2CReadByte(0);
+	date = I2CReadByte(0);
+	month = I2CReadByte(0);
+	year = I2CReadByte(1);
+	I2CStop();
 	
 	strcpy_P(buff, (char *)pgm_read_word(&(days_table[day-1])));
 	strcat(time, buff);
@@ -74,13 +86,35 @@ void DS1307_get_Date(char *time)
 	strcat(time, buff);
 }
 
-void DS1307_init(void)
+void DS1337Init(void)
 {
-	I2C_start();
-	I2C_send_byte(w_addr);
-	I2C_send_byte(0x00);
-	I2C_send_byte(0x00);
-	I2C_send_byte(0x00);
-	I2C_send_byte(0x00);
-	I2C_stop();
+	I2CStart();
+	I2CSendByte(WRITE_ADDR);
+	I2CSendByte(0x00);
+	I2CSendByte(0x00);
+	I2CSendByte(0x00);
+	I2CSendByte(0x00);
+	I2CStop();
+}
+
+
+void DS1337SetTime(uint8_t hor, 
+                     uint8_t min, 
+                     uint8_t sec, 
+                     uint8_t day, 
+                     uint8_t mon, 
+                     uint8_t dat, 
+                     uint8_t yer)
+{
+    I2CStart();
+    I2CSendByte(WRITE_ADDR);
+    I2CSendByte(0x00);
+    I2CSendByte(DS1337GetBCD(sec));
+    I2CSendByte(DS1337GetBCD(min));
+    I2CSendByte(DS1337GetBCD(hor));
+    I2CSendByte(day+1);
+    I2CSendByte(DS1337GetBCD(dat+1));
+    I2CSendByte(DS1337GetBCD(mon+1));
+    I2CSendByte(DS1337GetBCD(yer));
+    I2CStop();
 }

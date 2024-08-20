@@ -1,0 +1,16 @@
+# AL304_watch_workspace ignore files and folders
+
+#files
+.docx
+.odt
+
+#folders
+article_pictures/
+Debug/
+misc/
+Datasheets/
+.vs/
+__Previews/
+History/
+Project Logs for HDSP_watch/
+Project Outputs for HDSP_watch/
